@@ -1,0 +1,24 @@
+
+schema: "1"
+
+title: "Minibus and Anbessa Bus Route Helper"
+
+summary: "An app that helps commuters find minibus and Anbessa bus routes, stops, and fare information so that they can plan their journeys more easily."
+
+members:
+  - name: "Wubishet Yitayew"
+    student_id: "UGR/0770/16"
+    email: "wubishetyitayew2106@gmail.com"
+    github: "Wube2106"
+  - name: "Peter Manas Deng"
+    student_id: "UGR/3402/15"
+    email: "petermanas1234@gmail.com"
+    github: "peter3168"
+  - name: "Mahder Hawaz"
+    student_id: "UGR/2768/16"
+    email: "mahderhawaz16@gmail.com"
+    github: "mahderhawaz"
+  - name: ""
+    student_id: ""
+    email: ""
+    github: ""
