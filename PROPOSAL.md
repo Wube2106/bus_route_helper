@@ -126,4 +126,4 @@ We plan to use Claude, ChatGPT and GitHub Copilot, at the AI-use levels defined 
 | **Writing tests:** test scaffolding and ideas for edge cases | 3, draft and verify |
 | **Not used:** the data model, the Firestore security rules and the first test of each feature, which we write ourselves first | 0, no AI |
 
-For everything generated we read every line, run the tests and fix mistakes before committing. We record each generated file, the level, our changes, how we verified it and any mistakes we found in `AI_USAGE.md` at each milestone. We never enter passwords, keys or personal data into an AI tool, and every member can explain the code they commit.
+For everything generated, we will read every line, run the tests and fix mistakes before committing. At each milestone we will record each generated file, its AI-use level, our changes, how we verified it and any mistakes we found in AI_USAGE.md. We will never enter passwords, keys or personal data into an AI tool, and every member will be able to explain the code they commit.
