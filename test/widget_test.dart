@@ -6,6 +6,6 @@ void main() {
   testWidgets('app starts on the Home screen', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: BusRouteHelperApp()));
     await tester.pumpAndSettle();
-    expect(find.text('Home / Search'), findsWidgets);
+    expect(find.text('Where are you going today?'), findsWidgets);
   });
 }

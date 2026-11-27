@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../routes/domain/models.dart';
 import '../../routes/presentation/providers.dart';
 
-/// What the user chose on the Home screen (stop ids, null = not chosen yet).
 typedef JourneyQuery = ({String? fromId, String? toId});
 
 class JourneyQueryNotifier extends Notifier<JourneyQuery> {
@@ -19,8 +18,6 @@ final journeyQueryProvider =
   JourneyQueryNotifier.new,
 );
 
-/// Routes that go from the chosen start to the chosen destination,
-/// narrowed by the type filter (All / Minibus / Anbessa).
 final journeyResultsProvider = FutureProvider<List<BusRoute>>((ref) async {
   final query = ref.watch(journeyQueryProvider);
   final filter = ref.watch(typeFilterProvider);
@@ -34,7 +31,6 @@ final journeyResultsProvider = FutureProvider<List<BusRoute>>((ref) async {
   return routes.where((r) => r.type == filter).toList();
 });
 
-/// The fare of one route for the current journey (null if unknown).
 final routeFareProvider = FutureProvider.family<Fare?, String>((ref, routeId) {
   final query = ref.watch(journeyQueryProvider);
   if (query.fromId == null || query.toId == null) return null;
@@ -44,3 +40,19 @@ final routeFareProvider = FutureProvider.family<Fare?, String>((ref, routeId) {
         toStopId: query.toId!,
       );
 });
+
+final allStopsProvider = FutureProvider<List<Stop>>(
+  (ref) => ref.watch(routeRepositoryProvider).searchStops(''),
+);
+
+final stopByIdProvider = FutureProvider.family<Stop?, String>(
+  (ref, id) => ref.watch(routeRepositoryProvider).stopById(id),
+);
+
+final routeByIdProvider = FutureProvider.family<BusRoute?, String>(
+  (ref, id) => ref.watch(routeRepositoryProvider).routeById(id),
+);
+
+final stopsOfRouteProvider = FutureProvider.family<List<Stop>, String>(
+  (ref, id) => ref.watch(routeRepositoryProvider).stopsOfRoute(id),
+);
