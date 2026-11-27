@@ -65,8 +65,12 @@ class RoutePainter extends CustomPainter {
         ),
         textDirection: TextDirection.ltr,
       )..layout(maxWidth: 110);
+      final fitsOnRight = points[i].dx + 12 + text.width <= size.width - 8;
+      final dx = fitsOnRight
+          ? points[i].dx + 12
+          : points[i].dx - 12 - text.width;
       canvas.save();
-      canvas.translate(points[i].dx + 12, points[i].dy - 7);
+      canvas.translate(dx, points[i].dy - 7);
       text.paint(canvas, Offset.zero);
       canvas.restore();
     }
